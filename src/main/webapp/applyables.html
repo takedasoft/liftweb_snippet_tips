@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>Home</title>
+</head>
+
+  <body class="lift:content_id=main">
+    <div id="main" class="lift:surround?with=default;at=content">
+      <h2>Snippetとして許されるメソッドの調査</h2>
+      <p data-lift="applyableSnippetMethods.case1">
+         ここをrenderできる？ <c:result></c:result>
+      </p>
+      <p data-lift="applyableSnippetMethods.case2">
+         ここをrenderできる？ <c:result></c:result>
+      </p>
+      <p data-lift="applyableSnippetMethods.case3">
+         ここをrenderできる？ <span class="result"></span>
+      </p>
+      <p data-lift="applyableSnippetMethods.case4">
+         ここをrenderできる？ <span class="result"></span>
+      </p>
+      <p data-lift="applyableSnippetMethods.badcase1">
+         ここをrenderできる？ <span class="result"></span>
+      </p>
+      <p data-lift="applyableSnippetMethods.badcase2">
+         ここをrenderできる？ <span class="result"></span>
+      </p>
+    </div>
+  </body>
+</html>
+

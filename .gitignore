@@ -1,0 +1,46 @@
+# eclipse conf file
+.settings
+.classpath
+.project
+.manager
+
+# building
+target
+build
+null
+tmp
+temp
+dist
+test-output
+
+# other scm
+.svn
+.CVS
+.hg*
+
+# switch to regexp syntax.
+#  syntax: regexp
+#  ^\.pc/
+
+*.log
+
+# IntelliJ
+*.iml
+*.ipr
+*.iws
+
+# NetBeans
+nbproject/private
+
+#sbt
+target/
+project/project/
+project/target
+
+.DS_Store
+*.db
+
+/build/
+.~lock*
+#ide_lib
+monkey
