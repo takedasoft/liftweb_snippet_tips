@@ -1,17 +1,21 @@
-package code
-package snippet
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>Home</title>
+</head>
 
-import scala.xml.{NodeSeq, Text}
-import net.liftweb.util._
-import net.liftweb.common._
-import net.liftweb.http._
-import Helpers._
+  <body class="lift:content_id=main">
+    <div id="main" class="lift:surround?with=default;at=content">
 
-import code.model.User
+        <form data-lift="loginFormClientValidation?form=post">
+            ログインID：<input type="text" name="login" size="24" maxlength="24" placeholder="user1"/><br/>
+            パスワード：<input type="password" name="password" size="24" maxlength="24" placeholder="pass1"/><br/>
+            <input type="submit" value="ログイン" />
+        </form>
 
-/**
- * "普通のサーブレット"な考え方のSnippet
- */
+<h2>Snippet</h2>
+<pre>
 class LoginFormClientValidation {
   
   object login extends SessionVar("")
@@ -40,3 +44,9 @@ class LoginFormClientValidation {
     }
   }
 }
+</pre>
+
+    </div>
+  </body>
+</html>
+

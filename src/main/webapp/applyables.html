@@ -26,7 +26,30 @@
       <p data-lift="applyableSnippetMethods.badcase2">
          ここをrenderできる？ <span class="result"></span>
       </p>
+      
+    <h2>Snippet</h2>
+  <pre>
+class ApplyableSnippetMethods {
+  
+  // old style
+  def case1(xhtml:NodeSeq) : NodeSeq = bind( "c", xhtml, "result" -> "これはOK" )
+  def case2 = <font color="red">{"これもOK。入力NodeSeqは省略できるが全コンテンツ入れ替えになる"}</font>
+  
+  // new style ( designer friendly template )
+  def case3 = ".result" #> "これはOK"
+
+  def badcase1(xhtml:NodeSeq) = "これはNG。戻り型はNodeSeq" // Text("これはOK")
+
+  def badcase2(xhtml:NodeSeq) = ".result" #> "これはNG。 NodeSeq => CssSel 型は認識されないし、そもそも意味がない。"
+}
+
+object ApplyableSnippetMethods {
+  def case4 : CssSel = ".result" #> "これはOK。シングルトンで良いケースでのみ使用"
+}
+  </pre>
+      
     </div>
   </body>
+  
 </html>
 

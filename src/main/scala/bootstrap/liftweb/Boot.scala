@@ -24,11 +24,9 @@ class Boot {
     // Build SiteMap
     val entries = List(
       Menu.i("Home") / "index",
-      Menu.i("Applyable") / "applyables",
+      Menu(Loc("Applyable", Link(List("applyables"), true, "/applyables"), "Snippetメソッドの型")),
       Menu(Loc("LoginForms", Link(List("loginform"), true, "/loginform/"), "LoginForm Cookbook")),
-      Menu(Loc("ComplexForms", Link(List("complexform"), true, "/complexform/"), "ComplexForm Cookbook")),
-
-      Menu(Loc("Static", Link(List("static"), true, "/static/index"), "Static Content"))
+      Menu(Loc("ComplexForms", Link(List("complexform"), true, "/complexform/"), "ComplexForm Cookbook"))
     )
 
     // set the sitemap.  Note if you don't want access control for

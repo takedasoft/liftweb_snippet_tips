@@ -14,6 +14,31 @@
             <input type="submit" value="ログイン" />
         </form>
 
+<h2>Snippet</h2>
+<pre>
+class LoginFormEasy {
+  
+  def render = {
+    
+    var login :String = ""
+    var password:String = ""
+    
+    def process : Unit = {
+      User.authenticate( login, password ) match {
+        case Full(user) => 
+          S.notice( "ようこそ %s さん".format(user.nickname) )
+          S.redirectTo("mypage")
+        case _ =>
+          S.error( "ログインできません" )
+      }
+    }
+
+    "name=login" #> SHtml.text( login, (s) => { println( "-- set login %s".format(s) ); login = s } ) &
+    "name=password" #> SHtml.password( password,(s) => { println( "-- set password %s".format(s) ); password = s } ) &
+    "type=submit" #> SHtml.button( <span>Join!</span>, { () => println("-- submit! --"); process } )
+  }
+
+</pre>
     </div>
   </body>
 </html>

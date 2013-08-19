@@ -8,8 +8,9 @@ Lift2.2以降で用意された Designer Friendly Templating を中心に、Lift
 向け。
 
 # 起動
-` > sbt`
-` sbt> container:start`
-http://localhost:8080/ にアクセスしてください。
+
+1. > sbt
+2. sbt> container:start
+3. http://localhost:8080/
 
 Snippetのサンプル集であり、ストレージや外部サービスは使用していません。modelは簡単なモックオブジェクトを利用しています。

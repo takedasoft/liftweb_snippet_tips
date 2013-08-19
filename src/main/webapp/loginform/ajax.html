@@ -1,23 +1,23 @@
-package code
-package snippet
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>Home</title>
+</head>
 
-import scala.xml.{NodeSeq, Text}
-import net.liftweb.util._
-import net.liftweb.common._
-import net.liftweb.http._
-import Helpers._
+  <body class="lift:content_id=main">
+    <div id="main" class="lift:surround?with=default;at=content">
 
-import js._
-import JsCmds._
-import JE._
-
-import code.model.User
-
-/**
- * Ajax型のFORM。
- * 
- * このSnippet以外は何も編集する必要がないことに注目。
- */
+        <form data-lift="loginFormAjax?form=post">
+            ログインID：<input type="text" name="login" size="24" maxlength="24" placeholder="user1"/>
+            <span class="invalid" id="login_error"></span><br/>
+            パスワード：<input type="password" name="password" size="24" maxlength="24" placeholder="pass1"/>
+            <span class="invalid" id="password_error"></span><br/>
+            <input type="submit" value="ログイン" />
+        </form>
+        
+<h2>Snippet</h2>
+<pre>
 class LoginFormAjax {
   
   object login extends SessionVar("")
@@ -64,3 +64,9 @@ class LoginFormAjax {
   }
   
 }
+</pre>
+
+    </div>
+  </body>
+</html>
+

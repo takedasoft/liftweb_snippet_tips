@@ -15,7 +15,7 @@ class User {
 
 object User {
   def authenticate( login:String, password:String ) : Box[User] = {
-    if( login == "user1" && password == "pass1" ) {
+    if( login.startsWith("user1") && password == "pass1" ) {
       val u = new User
       u.login = login
       u.password = password

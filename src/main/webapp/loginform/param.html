@@ -14,6 +14,25 @@
             <input type="submit" value="ログイン" />
         </form>
 
+<h2>Snippet</h2>
+<pre>
+class LoginFormParam {
+  
+  def render = {
+    
+    if( S.post_? ){
+      User.authenticate( S.param("login").openOr(""), S.param("password").openOr("") ) match {
+        case Full(user) => 
+          S.notice( "ようこそ %s さん".format(user.nickname) )
+          S.redirectTo("mypage")
+        case _ =>
+          S.error( "ログインできません" )
+      }
+    } 
+    PassThru
+  } 
+}
+</pre>
     </div>
   </body>
 </html>

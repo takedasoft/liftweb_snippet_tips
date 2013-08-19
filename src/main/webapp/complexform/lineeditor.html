@@ -18,7 +18,36 @@
             </table>
             <input type="submit" value="更新" />
         </form>
-
+        
+<h2>Snippet</h2>
+<pre>
+class LineEditor {
+  
+  object changes extends RequestVar( new HashMap[Long,Product] )
+  private def get(id:Long) =  changes.getOrElseUpdate(id, new Product(id,"",0))
+  private def updateTitle(id:Long,title:String) = 
+    changes += id ->get(id).title(title)
+  private def updatePrice(id:Long,priceString:String) = 
+    asInt(priceString).foreach( price => 
+      changes += id -> get(id).price(price)
+    )
+  
+  def render = {
+    ".products *" #> Product.findAll.map( p => {
+        ".id" #> p.id.toString &
+        ".title" #> SHtml.text( p.title, updateTitle(p.id, _) ) &
+        ".price" #> SHtml.text( p.price.toString, updatePrice(p.id,_) ) 
+    } ) &
+    "type=submit" #> { 
+      SHtml.submit("save", () => {
+        changes.is.values.foreach( p => p.save )
+        S.notice("更新しました")
+        S.redirectTo("lineeditor")
+      } ) ++ 
+      SHtml.submit("reset all", () => Product.reset ) }
+  } 
+}
+</pre>
     </div>
   </body>
 </html>
